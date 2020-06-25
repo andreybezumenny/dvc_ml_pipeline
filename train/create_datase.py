@@ -2,7 +2,6 @@ import gdown
 import numpy as np
 import pandas as pd
 from config import Config
-from train.download_shareable_link import download_file_from_google_drive
 from sklearn.model_selection import train_test_split
 
 np.random.seed(Config.RANDOM_SEED)

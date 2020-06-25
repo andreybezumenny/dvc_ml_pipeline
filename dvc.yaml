@@ -5,3 +5,26 @@ stages:
     - train/create_datase.py
     outs:
     - assets/data
+  extract_features:
+    cmd: python train/extract_features.py
+    deps:
+    - assets/data
+    - train/extract_features.py
+    outs:
+    - assets/features
+  train_model:
+    cmd: python train/train_model.py
+    deps:
+    - assets/features
+    - train/train_model.py
+    outs:
+    - assets/models
+  evaluation:
+    cmd: python train/evaluate_model.py
+    deps:
+    - assets/features
+    - assets/models
+    - train/evaluate_model.py
+    metrics:
+    - assets/metrics.json:
+        cache: false

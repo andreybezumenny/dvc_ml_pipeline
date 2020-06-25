@@ -6,3 +6,35 @@ features:
   outs:
   - path: assets/data
     md5: 8cb343e203e5aaad56b8adce6ef887ad.dir
+extract_features:
+  cmd: python train/extract_features.py
+  deps:
+  - path: assets/data
+    md5: 8cb343e203e5aaad56b8adce6ef887ad.dir
+  - path: train/extract_features.py
+    md5: a3f0c94fa29a2d3c590529de2e3e95ff
+  outs:
+  - path: assets/features
+    md5: df4bb5a4d3b0ead8bd09cbbe388db06d.dir
+train_model:
+  cmd: python train/train_model.py
+  deps:
+  - path: assets/features
+    md5: df4bb5a4d3b0ead8bd09cbbe388db06d.dir
+  - path: train/train_model.py
+    md5: ea0cbd3689ecc45e742dd690c54f88ed
+  outs:
+  - path: assets/models
+    md5: c317c52eda11abbbf6ef0b851d26c19e.dir
+evaluation:
+  cmd: python train/evaluate_model.py
+  deps:
+  - path: assets/features
+    md5: df4bb5a4d3b0ead8bd09cbbe388db06d.dir
+  - path: assets/models
+    md5: c317c52eda11abbbf6ef0b851d26c19e.dir
+  - path: train/evaluate_model.py
+    md5: d81bcd3f406e1c7bfcf2cd023aeedcbc
+  outs:
+  - path: assets/metrics.json
+    md5: 8b26c21419f9b896506be1603799b15d
