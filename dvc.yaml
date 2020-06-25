@@ -1,0 +1,7 @@
+stages:
+  features:
+    cmd: python train/create_datase.py
+    deps:
+    - train/create_datase.py
+    outs:
+    - assets/data

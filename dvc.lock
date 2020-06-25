@@ -1,0 +1,8 @@
+features:
+  cmd: python train/create_datase.py
+  deps:
+  - path: train/create_datase.py
+    md5: 492739f85b35015b72043aca96f8da0c
+  outs:
+  - path: assets/data
+    md5: 8cb343e203e5aaad56b8adce6ef887ad.dir
