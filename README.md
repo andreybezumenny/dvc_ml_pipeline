@@ -108,5 +108,8 @@ Try now rf classifier. So change the code in  train_model.py
 Then run `dvc repro dvc.yaml` 
 it will find which files were changed and rerun only that steps
 `git add .`
+`git commit -m 'Complete dvc rf experiment'`
+`git tag -a 'rf-experiment' -m 'Experiment with rf'`
+`dvc metrics show -T`
 
 

@@ -79,7 +79,7 @@ def train_tfidf_model(train_features_original,  train_labels, model_save_path):
     y_train = train_labels.astype(int)
 
     model = Pipeline([
-        ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
+        ('tfidf', TfidfVectorizer(ngram_range=(1, 4))),
         #('clf', LogisticRegression(C=1))])
         ('clf', RandomForestClassifier(n_estimators=150, max_depth=6, random_state=Config.RANDOM_SEED))])
 
