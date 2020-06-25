@@ -59,3 +59,54 @@ install requirements ...
     6) Commit all 
     `git add .`
     `git commit -m 'Complete dvc lr experiment'`
+    `git tag -a 'lr-experiment' -m 'Experiment with lr'`
+    
+6) Check metrics with command:
+    `dvc metrics show -T`
+    ```workspace:                                                                      
+            assets/metrics.json:
+                    0.precision: 0.8385269121813032
+                    0.recall: 0.8283582089552238
+                    0.f1-score: 0.8334115438761144
+                    0.support: 1072
+                    1.precision: 0.8141414141414142
+                    1.recall: 0.8249744114636642
+                    1.f1-score: 0.8195221148957804
+                    1.support: 977
+                    accuracy: 0.8267447535383113
+                    macro avg.precision: 0.8263341631613587
+                    macro avg.recall: 0.826666310209444
+                    macro avg.f1-score: 0.8264668293859474
+                    macro avg.support: 2049
+                    weighted avg.precision: 0.8268994687528153
+                    weighted avg.recall: 0.8267447535383113
+                    weighted avg.f1-score: 0.8267888146844178
+                    weighted avg.support: 2049
+    lr-experiment: <------- THIS IS VERSION OF EXPERIMENT 
+            assets/metrics.json:
+                    0.precision: 0.8385269121813032
+                    0.recall: 0.8283582089552238
+                    0.f1-score: 0.8334115438761144
+                    0.support: 1072
+                    1.precision: 0.8141414141414142
+                    1.recall: 0.8249744114636642
+                    1.f1-score: 0.8195221148957804
+                    1.support: 977
+                    accuracy: 0.8267447535383113
+                    macro avg.precision: 0.8263341631613587
+                    macro avg.recall: 0.826666310209444
+                    macro avg.f1-score: 0.8264668293859474
+                    macro avg.support: 2049
+                    weighted avg.precision: 0.8268994687528153
+                    weighted avg.recall: 0.8267447535383113
+                    weighted avg.f1-score: 0.8267888146844178
+                    weighted avg.support: 2049
+    ```
+7) Change experiment:
+
+Try now rf classifier. So change the code in  train_model.py  
+Then run `dvc repro dvc.yaml` 
+it will find which files were changed and rerun only that steps
+`git add .`
+
+

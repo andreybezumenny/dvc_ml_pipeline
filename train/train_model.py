@@ -8,6 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from tqdm import tqdm
 
@@ -79,7 +80,8 @@ def train_tfidf_model(train_features_original,  train_labels, model_save_path):
 
     model = Pipeline([
         ('tfidf', TfidfVectorizer(ngram_range=(1, 2))),
-        ('clf', LogisticRegression(C=1))])
+        #('clf', LogisticRegression(C=1))])
+        ('clf', RandomForestClassifier(n_estimators=150, max_depth=6, random_state=Config.RANDOM_SEED))])
 
     model.fit(X_train, y_train)
     pickle.dump(model, open(model_save_path, 'wb'))
