@@ -22,7 +22,7 @@ joblib==0.15.1
 jsonpath-ng==1.5.1
 nanotime==0.5.2
 networkx==2.3
-numpy==1.19.0
+numpy==1.22.0
 packaging==20.4
 pandas==1.0.5
 pathspec==0.8.0
